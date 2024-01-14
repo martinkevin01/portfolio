@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller ="activepage">
+  <div class="container" data-action= "click->activepage#toggleSelection">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <h5>Martin Kevin</h5>
+      <span>Martin Kevin</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -31,7 +31,7 @@
       </ul>
     </div>
     <%= link_to "mailto:martinkevingapie@gmail.com", class: "navbar-email" do %>
-      <h5>martinkevingapie@gmail.com</h5>
+      <span>martinkevingapie@gmail.com</span>
     <% end %>
   </div>
 </div>
