@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller ="activepage">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow-lg sticky-top p-3 mb-5 bg-body rounded" data-controller ="activepage" >
   <div class="container" data-action= "click->activepage#toggleSelection">
     <%= link_to root_path, class: "navbar-brand" do %>
       <span>Martin Kevin</span>
@@ -14,7 +14,7 @@
             <%= link_to "Home", "#home", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "About", "#", class: "nav-link" %>
+            <%= link_to "About", "#about", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Skills", "#", class: "nav-link" %>

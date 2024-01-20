@@ -1,19 +1,52 @@
 // Specific CSS for your home-page
-:root, *{
+:root, body{
   background-color: white !important;
+}
+
+.home-portrait{
+  border-radius: 50%;
+  background-color: antiquewhite;
+  width: 300x;
+  height:300px;
+}
+
+.home-portrait img{
+  width: 310px;
+  height: 350px;
+  object-fit: contain;
 }
 
 .name{
   font-weight: bold;
   font-size: 48px;
 }
+
 .headline span{
   font-size: 24px;
 }
-.headline p{
+
+p{
   font-size: 20px;
 }
 
 .social{
   font-size: 2rem;
+}
+// about section
+
+.about-portrait img{
+  width: 310px;
+  height: 350px;
+  object-fit: contain;
+}
+
+.rounded-card{
+  width:145px;
+  height: 145px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.about-icon{
+  font-size: 25px;
 }

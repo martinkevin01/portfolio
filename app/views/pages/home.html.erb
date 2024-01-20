@@ -1,26 +1,63 @@
 <div class="container">
-<section id="home" class ="d-lg-flex flex-row-reverse justify-content-lg-center">
-  <div class="portrait m-5">
-  <img src="<%= image_path('logo.png') %>" alt="Martin Kevin Gapie" class="">
-  </div>
-  <div class="headline m-5">
-  <h2 class="name">Martin Kevin <br> Gapie</h2>
-  <span>Full-stack Developer</span>
-  <p>Passionate full-stack developer and computer scientist, <br> I enjoy coding tech websites</p>
+  <section id="home" class="d-lg-flex flex-row-reverse justify-content-lg-center">
+    <div class="home-portrait m-5">
+      <img src="<%= image_path('mkgapie.png') %>" alt="Martin Kevin Gapie" class="pb-5">
+    </div>
+    <div class="headline m-5">
+      <h2 class="name">Martin Kevin <br> Gapie</h2>
+      <span>Full-stack Developer</span>
+      <p>Passionate full-stack developer and computer scientist, <br> I enjoy coding tech websites</p>
+      <br>
+      <%= link_to "Get in touch", "https://www.google.com" , class: "button-standard " %>
+    </div>
+    <div class="social d-flex flex-column m-5 justify-content-center">
+      <%= link_to "https://www.github.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
+      <i class="uil uil-github-alt"></i>
+      <% end %>
+      <%= link_to "https://www.linkedin.com/in/martinkevin01", class: "social-item text-decoration-none", target: "_blank" do %>
+      <i class="uil uil-linkedin-alt"></i>
+      <% end %>
+      <%= link_to "https://www.twitter.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
+      <i class="uil uil-twitter-alt"></i>
+      <% end %>
+    </div>
+  </section>
   <br>
-  <%= link_to "Get in touch", "https://www.google.com" , class: "button-standard " %>
-  </div>
-  <div class="social d-flex flex-column m-5 justify-content-center">
- <%= link_to "https://www.github.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
-    <i class="uil uil-github-alt"></i>
-  <% end %>
- <%= link_to "https://www.linkedin.com/in/martinkevin01", class: "social-item text-decoration-none", target: "_blank" do %>
-    <i class="uil uil-linkedin-alt"></i>
-  <% end %>
-   <%= link_to "https://www.twitter.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
-    <i class="uil uil-twitter-alt"></i>
-  <% end %>
-  </div>
-</section>
+  <br>
+  <section id="about">
+    <h2 class="fw-bold text-center">About Me</h2>
+    <br><br>
+    <div class="about-section d-lg-flex flex-row-reverse justify-content-lg-center">
+      <div class="about-portrait m-5">
+        <img src="<%= image_path('mkgapie.png') %>" alt="Martin Kevin Gapie" class="pb-5">
+      </div>
+      <div class="description m-5">
+        <div class="experiences d-sm-flex ">
+          <div class="rounded-card rounded-circle shadow mx-3 text-center ">
+            <i class="about-icon fa-solid fa-trophy"></i>
+            <h3>Experiences</h3>
+            <span>1+ year</span>
+          </div>
+          <div class="rounded-card rounded-circle shadow mx-3 text-center">
+            <i class="about-icon fa-solid fa-diagram-project"></i>
+            <h3>Projects</h3>
+            <span>1+ year</span>
+          </div>
+          <div class="rounded-card rounded-circle shadow mx-3 text-center">
+            <i class="about-icon fa-solid fa-users"></i>
+            <h3>Manager</h3>
+            <span>1+ year</span>
+          </div>
+
+        </div>
+        <br>
+        <p>Computer scientist with a master's degree, I broadened my skills <br>
+          by embarking on intensive training in full-stack web development <br> at Bootcamp the Wagon in Montreal</p>
+        <br>
+        <%= link_to "Download CV", download_path, target: "_blank" , class: "button-standard"%>
+
+      </div>
+    </div>
+  </section>
 
 </div>
