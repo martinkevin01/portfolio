@@ -1,5 +1,5 @@
 <div class="container">
-  <section id="home" class="d-lg-flex flex-row-reverse justify-content-lg-center">
+  <section id="home" class="d-lg-flex flex-row-reverse justify-content-lg-center ">
     <div class="home-portrait m-5">
       <img src="<%= image_path('mkgapie.jpeg') %>" alt="Martin Kevin Gapie" class="pb-5">
     </div>
@@ -52,11 +52,45 @@
         </div>
         <br>
         <p>Computer scientist with a master's degree, I broadened my skills <br>
-          by embarking on intensive bootcamp of full-stack web development <br> at <a href="https://www.lewagon.com/fr/montreal"> le wagon</a> in Montreal</p>
+          by embarking on intensive full-stack web development bootcamp <br> at <a
+            href="https://www.lewagon.com/fr/montreal"> le wagon</a> in Montreal</p>
         <br>
         <%= link_to "Download CV", download_path, target: "_blank" , class: "button-standard"%>
 
       </div>
+    </div>
+  </section>
+  <br><br>
+
+  <section id="skills">
+    <h2 class="fw-bold text-center">Skills</h2>
+    <br><br>
+    <h4 class=" text-center">Stacks I use</h4>
+    <div class="stacks-section">
+      <img src="<%= image_path('ruby.svg') %>" class="m-3 " alt="ruby">
+      <img src="<%= image_path('rails.svg') %>" class="m-3 " alt="rails">
+      <img src="<%= image_path('js.svg') %>" class="m-3 " alt="javascript">
+      <img src="<%= image_path('stimulus.svg') %>" class="m-3 " alt="stimulus js">
+      <img src="<%= image_path('html.svg') %>" class="m-3 " alt="html">
+      <img src="<%= image_path('css.svg') %>" class="m-3" alt="css">
+      <img src="<%= image_path('sass.svg') %>" class="m-3 " alt="sass">
+      <img src="<%= image_path('bootstrap.svg') %>" class="m-3 " alt="bootstrap">
+      <img src="<%= image_path('figma.svg') %>" class="m-3 " alt="figma">
+      <img src="<%= image_path('sql.svg') %>" class="m-3 " alt="sql">
+      <img src="<%= image_path('postgre.svg') %>" class="m-3 " alt="postgre">
+      <img src="<%= image_path('git.svg') %>" class="m-3 " alt="git">
+      <img src="<%= image_path('github.svg') %>" class="m-3 " alt="github">
+      <img src="<%= image_path('heroku.svg') %>" class="m-3 " alt="heroku">
+
+    </div>
+    <br><br><br>
+    <div class="manager-section">
+      <h4 class=" text-center">Manager</h4>
+      <div class="trello d-lg-flex flex-column justify-content-lg-center">
+        <img src="<%= image_path('trello.svg') %>" class="m-3 " alt="trello">
+        <h5 class="">Trello</h5>
+      </div>
+
     </div>
   </section>
 
