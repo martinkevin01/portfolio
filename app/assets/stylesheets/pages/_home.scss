@@ -3,12 +3,6 @@
   background-color: white !important;
 }
 
-.home-portrait{
-  border-radius: 50%;
-  background-color: antiquewhite;
-  width: 300x;
-  height:300px;
-}
 
 .home-portrait img{
   width: 310px;
@@ -52,7 +46,12 @@ p{
 }
 
 
-.stacks-section img, .manager-section img, .management-skills{
+.stacks-section img, .manager-section img{
   height: 130px;
   width: 130px;
+}
+
+.management-skills{
+  height: 160px;
+  width: 160px;
 }
