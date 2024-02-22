@@ -10,7 +10,7 @@
       <br>
       <%= link_to "Get in touch", "https://www.google.com" , class: "button-standard " %>
     </div>
-    <div class="social d-flex flex-column m-5 justify-content-center">
+    <div class="social d-lg-flex flex-lg-column m-5 justify-content-center">
       <%= link_to "https://www.github.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
       <i class="uil uil-github-alt"></i>
       <% end %>
@@ -67,38 +67,45 @@
     <h4 class=" text-center">Stacks I use</h4>
     <br><br>
     <div class="stacks-section">
-    <a href="https://www.ruby-lang.org/fr/" target="_blank"> <img src="<%= image_path('ruby.svg') %>" class="m-3 " alt="ruby"></a>
-    <a href="https://rubyonrails.org/" target="_blank"> <img src="<%= image_path('rails.svg') %>" class="m-3 " alt="rails"></a>
-    <a href="https://www.javascript.com/" target="_blank"> <img src="<%= image_path('js.svg') %>" class="m-3 " alt="javascript"></a>
-    <a href="https://stimulus.hotwired.dev/" target="_blank"> <img src="<%= image_path('stimulus.svg') %>" class="m-3 " alt="stimulus"></a>
-    <a href="https://www.w3schools.com/html/" target="_blank"> <img src="<%= image_path('html.svg') %>" class="m-3 " alt="html"></a>
-    <a href="https://www.w3schools.com/css/" target="_blank"> <img src="<%= image_path('css.svg') %>" class="m-3 " alt="css"></a>
-    <a href="https://sass-lang.com/" target="_blank"> <img src="<%= image_path('sass.svg') %>" class="m-3 " alt="sass"></a>
-    <img src="<%= image_path('bootstrap.svg') %>" class="m-3 " alt="bootstrap">
-    <img src="<%= image_path('figma.svg') %>" class="m-3 " alt="figma">
-    <img src="<%= image_path('sql.svg') %>" class="m-3 " alt="sql">
-      <img src="<%= image_path('postgre.svg') %>" class="m-3 " alt="postgre">
-      <img src="<%= image_path('git.svg') %>" class="m-3 " alt="git">
-      <img src="<%= image_path('github.svg') %>" class="m-3 " alt="github">
-      <img src="<%= image_path('heroku.svg') %>" class="m-3 " alt="heroku">
+      <a href="https://www.ruby-lang.org/fr/" target="_blank"> <img src="<%= image_path('skills/ruby.svg') %>" class="m-3 "
+          alt="ruby"></a>
+      <a href="https://rubyonrails.org/" target="_blank"> <img src="<%= image_path('skills/rails.svg') %>" class="m-3 "
+          alt="rails"></a>
+      <a href="https://www.javascript.com/" target="_blank"> <img src="<%= image_path('skills/js.svg') %>" class="m-3 "
+          alt="javascript"></a>
+      <a href="https://stimulus.hotwired.dev/" target="_blank"> <img src="<%= image_path('skills/stimulus.svg') %>"
+          class="m-3 " alt="stimulus"></a>
+      <a href="https://www.w3schools.com/html/" target="_blank"> <img src="<%= image_path('skills/html.svg') %>" class="m-3 "
+          alt="html"></a>
+      <a href="https://www.w3schools.com/css/" target="_blank"> <img src="<%= image_path('skills/css.svg') %>" class="m-3 "
+          alt="css"></a>
+      <a href="https://sass-lang.com/" target="_blank"> <img src="<%= image_path('skills/sass.svg') %>" class="m-3 "
+          alt="sass"></a>
+      <img src="<%= image_path('skills/bootstrap.svg') %>" class="m-3 " alt="bootstrap">
+      <img src="<%= image_path('skills/figma.svg') %>" class="m-3 " alt="figma">
+      <img src="<%= image_path('skills/sql.svg') %>" class="m-3 " alt="sql">
+      <img src="<%= image_path('skills/postgre.svg') %>" class="m-3 " alt="postgre">
+      <img src="<%= image_path('skills/git.svg') %>" class="m-3 " alt="git">
+      <img src="<%= image_path('skills/github.svg') %>" class="m-3 " alt="github">
+      <img src="<%= image_path('skills/heroku.svg') %>" class="m-3 " alt="heroku">
 
     </div>
     <br><br><br>
     <h4 class=" text-center">Manager</h4>
-    <div class="manager-section d-lg-flex justify-content-around">
+    <div class="manager-section d-lg-flex justify-content-lg-around flex-lg-wrap">
 
-      <div class="management-skills d-lg-flex flex-column">
-        <img src="<%= image_path('trello.svg') %>" class="m-3 " alt="trello">
+      <div class="management-skills d-lg-flex flex-lg-column">
+        <img src="<%= image_path('skills/trello.svg') %>" class="m-3 " alt="trello">
         <h5 class="text-center fw-bold">Trello</h5>
       </div>
 
-      <div class="management-skills d-lg-flex flex-column">
-        <img src="<%= image_path('communication.svg') %>" class="m-3 " alt="communication">
+      <div class="management-skills d-lg-flex flex-lg-column">
+        <img src="<%= image_path('skills/communication.svg') %>" class="m-3 " alt="communication">
         <h5 class="text-center fw-bold">Communication</h5>
       </div>
 
-      <div class="management-skills d-lg-flex flex-column">
-        <img src="<%= image_path('leadership.svg') %>" class="m-3 " alt="Leadership">
+      <div class="management-skills d-lg-flex flex-lg-column">
+        <img src="<%= image_path('skills/leadership.svg') %>" class="m-3 " alt="Leadership">
         <h5 class="text-center fw-bold">Leadership</h5>
       </div>
 
@@ -110,17 +117,17 @@
     <h2 class="fw-bold text-center">My Services</h2>
     <h4 class=" text-center">What I offer</h4>
     <br><br>
-    <div class="services-section d-lg-flex justify-content-around m-4">
+    <div class="services-section d-lg-flex justify-content-lg-around m-4">
       <div class="services-developer-section border shadow ">
         <div class="text-center">
           <i class="fa-solid fa-code services-icon m-4"></i>
           <h2>Web Developper</h2>
         </div>
         <ul class="list-unstyled m-4 ">
-        <li> <i class="uil uil-check-circle"></i> Understand your need</li>
-        <li><i class="uil uil-check-circle"></i> Design Skeleton</li>
-        <li><i class="uil uil-check-circle"></i> User flow and user story experience</li>
-        <li><i class="uil uil-check-circle"></i> UI/UX services</li>
+          <li> <i class="uil uil-check-circle"></i> Understand your need</li>
+          <li><i class="uil uil-check-circle"></i> Design Skeleton</li>
+          <li><i class="uil uil-check-circle"></i> User flow and user story experience</li>
+          <li><i class="uil uil-check-circle"></i> UI/UX services</li>
         </ul>
       </div>
 
@@ -130,32 +137,94 @@
           <h2>Manager</h2>
         </div>
         <ul class="list-unstyled m-4 ">
-        <li> <i class="uil uil-check-circle"></i> Establish a deliver estimation</li>
-        <li><i class="uil uil-check-circle"></i> Understanding the product</li>
-        <li><i class="uil uil-check-circle"></i> Communication between parts</li>
-        <li><i class="uil uil-check-circle"></i> Respecting the initial project</li>
-        <li><i class="uil uil-check-circle"></i> Deliver on time</li>
+          <li> <i class="uil uil-check-circle"></i> Establish a deliver estimation</li>
+          <li><i class="uil uil-check-circle"></i> Understanding the product</li>
+          <li><i class="uil uil-check-circle"></i> Communication between parts</li>
+          <li><i class="uil uil-check-circle"></i> Respecting the initial project</li>
+          <li><i class="uil uil-check-circle"></i> Deliver on time</li>
         </ul>
       </div>
     </div>
     <div class="text-center m-5">
-    <%= link_to "Get in touch", "https://www.google.com" , class: "button-standard" %>
+      <%= link_to "Get in touch", "https://www.google.com" , class: "button-standard" %>
     </div>
 
   </section>
-<br><br>
-  <section class="portfolio">
+  <br><br>
+  <section id="portfolio">
 
-   <h2 class="fw-bold text-center">Portfolio</h2>
+    <h2 class="fw-bold text-center">Portfolio</h2>
     <h4 class=" text-center">My Projects</h4>
     <br><br>
-    <div class="portfolio-section">
-      <div class="portfolio-card rounded border">
-      <a href="https://github.com/LuuNa-JD/cineselect" target="_blank"> <img src="<%= image_path('cineselect_preview.jpeg') %>" class="m-3 " alt="ruby"></a>
+    <div class="portfolio-section d-lg-flex justify-content-lg-around flex-lg-wrap">
+      <div class="portfolio-card rounded border border-2 shadow my-3">
+        <a href="https://www.cineselect.net/" target="_blank"> <img src="<%= image_path('projects/cineselect_preview.jpeg') %>"
+            class="my-4" alt="cineselect"></a>
+         <a href="https://www.cineselect.net/" target="_blank" class="text-decoration-none d-flex text-dark">
+            <h5 class="ms-4 mb-0">Cineselect</h5>
+            <i class=" arrow uil uil-arrow-right"></i>
+         </a>
+         <small class="ms-4">Mobile designed app</small>
+        <%# <p>Mobile-friendly website for movie or series suggestions based on the streaming platform you have access to</p> %>
+        <div class="social mx-4">
+          <%= link_to "https://github.com/LuuNa-JD/cineselect", class: "social-item text-decoration-none" , target: "_blank" do %>
+          <i class="uil uil-github-alt"></i>
+          <% end %>
+          <%= link_to " https://lnkd.in/eUdriCrG", class: "social-item text-decoration-none mx-2", target: "_blank" do %>
+          <i class="uil uil-linkedin-alt"></i>
+          <% end %>
+          <%= link_to "https://www.youtube.com/watch?v=dF_PQLjHuqY&t=634s", class: "social-item text-decoration-none mx-2", target: "_blank" do %>
+          <i class="uil uil-youtube"></i>
+          <% end %>
+        </div>
       </div>
+
+
+      <div class="portfolio-card rounded border border-2 shadow my-3">
+        <a href=" "> <img src="<%= image_path('projects/monstermarket.png') %>"
+            class="my-4" alt="monstermarket"></a>
+        <h5 class="mx-4">Monstermarket</h5>
+        <div class="social mx-4">
+          <%= link_to "https://github.com/LuuNa-JD/monsters_market", class: "social-item text-decoration-none" , target: "_blank" do %>
+          <i class="uil uil-github-alt"></i>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="portfolio-card rounded border border-2 shadow my-3">
+        <a href=" "> <img src="<%= image_path('projects/watchlist_preview.png') %>"
+            class="my-4" alt="watchlist"></a>
+        <h5 class="mx-4">Watchlist</h5>
+        <div class="social mx-4">
+          <%= link_to "https://github.com/martinkevin01/rails-watch-list", class: "social-item text-decoration-none" , target: "_blank" do %>
+          <i class="uil uil-github-alt"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="portfolio-card rounded border border-2 shadow my-3">
+        <a href=" "> <img src="<%= image_path('add.svg') %>"
+            class="my-4" alt="plus"></a>
+            <p class="mx-4">Currently working on <b>Loctogo</b> </p>
+
+      </div>
+
+
     </div>
 
 
   </section>
 
+<br><br><br>
+
+<section id="contact">
+  <h2 class="fw-bold text-center">Contact</h2>
+  <h4 class=" text-center">Get in touch</h4>
+  <br><br>
+  <div class="contact-section">
+
+  </div>
+
+</section>
 </div>

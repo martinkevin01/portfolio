@@ -57,8 +57,8 @@ p{
 }
 
 .services-developer-section, .services-manager-section{
-  height: 350px;
-  width: 400px;
+  height: 355px;
+  width: 415px;
   font-size: 20px;
 }
 
@@ -68,10 +68,15 @@ p{
 
 .portfolio-card{
   width: 340px;
-  height: 310px;
+  height: 335px;
 }
 .portfolio-card img{
   height: 193px;
   width: 295px;
   margin: auto;
+  display: block;
+}
+
+.arrow:hover{
+  font-size: 18px
 }
