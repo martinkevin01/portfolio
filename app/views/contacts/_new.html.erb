@@ -1,21 +1,23 @@
+<div class="col-md-4">
 <%= simple_form_for Contact.new do |f| %>
-<%= f.error_notification %>
-    <div class="form-group">
-      <%= f.input :name, required: true, autofocus: true,
+
+  <%= f.error_notification %>
+  <div class="form-group">
+    <%= f.input :name, required: true, autofocus: true, placeholder: "Your Name",
                 input_html: { autocomplete: "name" } %>
-    </div>
-    <div class="form-group">
-      <%= f.input :email, required: true,
+  </div>
+  <div class="form-group">
+    <%= f.input :email, required: true, placeholder: "Your email",
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    </div>
-    <div class="form-group">
-      <%= f.input :message, autofocus: true, placeholder: "Your message",
-                input_html: { autocomplete: "message" } %>
-    </div>
-    <div class="form-group d-none">
-      <%= f.input :nickname %>
-    </div>
-    <%= f.submit 'Send Message', class: 'btn btn-primary' %>
-    <% end %>
   </div>
+  <div class="form-group">
+    <%= f.input :message, autofocus: true, required: true, placeholder: "Your message",
+                input_html: { autocomplete: "message" }, input_html: { 'rows' => 10, 'cols' => 40 } %>
+  </div>
+  <div class="form-group d-none">
+    <%= f.input :nickname %>
+  </div>
+  <%= f.submit 'Send Message', class: '  button-standard' %>
+</div>
+<% end %>
