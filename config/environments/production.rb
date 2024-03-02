@@ -1,16 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # for mail form
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'mkgapie.com', # UPDATE THIS VALUE WITH YOUR OWN APP
-    :authentication => :plain
-  }
-  ActionMailer::Base.delivery_method = :smtp
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -100,4 +90,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  # for mail form
+  ActionMailer::Base.smtp_settings = {
+      :port           => ENV['MAILGUN_SMTP_PORT'],
+      :address        => ENV['MAILGUN_SMTP_SERVER'],
+      :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+      :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+      :domain         => 'mkgapie.heroku.com', # UPDATE THIS VALUE WITH YOUR OWN APP
+      :authentication => :plain
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
