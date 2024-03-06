@@ -1,36 +1,39 @@
 <div class="footer shadow-lg rounded center container-fluid d-lg-block justify-content-lg-center pt-5">
 
-<div>
+
+
+  <div>
     <ul class="footer-nav list-unstyled d-lg-flex justify-content-lg-center">
-      <li class="nav-item">
+      <li class="nav-item ">
         <%= link_to "About", "#about", class: "nav-link" %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item ">
         <%= link_to "Services", "#services", class: "nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ">
         <%= link_to "Projects", "#portfolio", class: "nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ">
         <%= link_to "Contact", "#contact", class: "nav-link" %>
       </li>
     </ul>
-    </div>
-
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <div class="footer-copyright text-center">
-      Made with <i class="fas fa-heart"></i> by Martin Kevin Gapie
-    </div>
+  </div>
 
 
-    <%= link_to "#home", class: "social text-decoration-none" , target: "_blank" do %>
-          <i class="uil uil-arrow-up scroll-up__icon"></i>
-          <% end %>
+  <div class="footer-links">
+    <a href="https://github.com/martinkevin01" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com/martinkevin01" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/martinkevin01" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+
+  <%= link_to "#home", class: "arrow-up text-decoration-none"  do %>
+  <i class="uil uil-arrow-up scroll-up__icon"></i>
+  <% end %>
+  <div class="footer-copyright text-center">
+    Made with <i class="fas fa-heart"></i> by Martin Kevin Gapie
+  </div>
+
+
 </div>

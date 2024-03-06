@@ -1,6 +1,6 @@
 .footer {
   background: white !important;
-  height: 200px;
+  height: 220px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -21,4 +21,16 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.arrow-up{
+  font-size: 3rem;
+}
+
+.footer-nav li{
+  opacity: 0.65;
+}
+.footer-nav li:hover{
+  opacity: 1;
+  color: black;
 }
