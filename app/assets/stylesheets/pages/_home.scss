@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 :root, body{
   background-color: white !important;
+  overflow-x: hidden;
 }
 
 
@@ -47,8 +48,8 @@ p{
 
 
 .stacks-section img, .manager-section img{
-  height: 130px;
-  width: 130px;
+  height: 135px;
+  width: 135px;
 }
 
 .management-skills{
@@ -79,4 +80,15 @@ p{
 
 .arrow:hover{
   font-size: 18px
+}
+
+
+@media (max-width: 960px) {
+  /* Pour un écran < 960px, cette classe CSS s'applique */
+
+
+  .navbar-email{
+   display: none;
+  }
+
 }

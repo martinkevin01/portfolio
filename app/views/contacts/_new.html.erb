@@ -3,16 +3,15 @@
 
   <%= f.error_notification %>
   <div class="form-group">
-    <%= f.input :name, required: true, autofocus: true, placeholder: "Your Name",
+    <%= f.input :name, required: true, placeholder: "Your Name",
                 input_html: { autocomplete: "name" } %>
   </div>
   <div class="form-group">
     <%= f.input :email, required: true, placeholder: "Your email",
-                autofocus: true,
                 input_html: { autocomplete: "email" }%>
   </div>
   <div class="form-group">
-    <%= f.input :message, autofocus: true, required: true, placeholder: "Your message",
+    <%= f.input :message, required: true, placeholder: "Your message",
                 input_html: { autocomplete: "message" }, label: false, :as => :text, input_html: { 'rows' => 10, 'cols' => 40, :style => 'width: 100%' } %>
   </div>
   <div class="form-group d-none">
