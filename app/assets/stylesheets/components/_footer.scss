@@ -26,6 +26,9 @@
 .arrow-up{
   font-size: 3rem;
 }
+.arrow-up:hover{
+  color: black;
+}
 
 .footer-nav li{
   opacity: 0.65;
@@ -33,4 +36,20 @@
 .footer-nav li:hover{
   opacity: 1;
   color: black;
+}
+
+@media (max-width: 960px) {
+.footer-nav{
+  display: flex;
+  justify-content: center;
+}
+.nav-item{
+  font-size: 17px;
+}
+
+.arrow-up{
+  position: absolute;
+  left: 7px;
+
+}
 }
