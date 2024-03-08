@@ -6,11 +6,11 @@
     <div class="headline m-4">
       <h2 class="name">Martin Kevin <br> Gapie</h2>
       <span>Full-stack Developer</span>
-      <p>Passionate full-stack developer and computer scientist, <br> I enjoy coding tech websites</p>
+      <p class = "text-justify">Passionate full-stack developer and computer scientist. <br>I enjoy coding tech websites</p>
       <br>
       <%= link_to "Get in touch", "#contact" , class: "button-standard " %>
     </div>
-    <div class="social d-md-flex flex-md-column m-5 justify-content-md-center">
+    <div class="social d-md-flex flex-md-column m-4 justify-content-md-center">
       <%= link_to "https://www.github.com/martinkevin01", class: "social-item text-decoration-none" , target: "_blank" do %>
       <i class="uil uil-github-alt"></i>
       <% end %>
@@ -31,28 +31,28 @@
       <div class="about-portrait m-4">
         <img src="<%= image_path('mkgapie.jpeg') %>" alt="Martin Kevin Gapie" class="pb-5">
       </div>
-      <div class="description m-5">
-        <div class="experiences d-sm-flex ">
+      <div class="description m-4">
+        <div class="experiences d-md-flex">
           <div class="rounded-card rounded-circle shadow mx-3 text-center ">
             <i class="about-icon fa-solid fa-trophy"></i>
-            <h4>Experiences</h4>
+            <h4 class="m-0">Experiences</h4>
             <span>1+ year</span>
           </div>
           <div class="rounded-card rounded-circle shadow mx-3 text-center">
             <i class="about-icon fa-solid fa-diagram-project"></i>
-            <h4>Projects</h4>
+            <h4 class="m-0">Projects</h4>
             <span>1+ year</span>
           </div>
           <div class="rounded-card rounded-circle shadow mx-3 text-center">
             <i class="about-icon fa-solid fa-users"></i>
-            <h4>Manager</h4>
+            <h4 class="m-0">Manager</h4>
             <span>1+ year</span>
           </div>
 
         </div>
         <br>
-        <p>Computer scientist with a master's degree, I broadened my skills <br>
-          by embarking on intensive full-stack web development bootcamp <br> at <a
+        <p class="text-justify ">Computer scientist with a master's degree, I broadened my skills by
+          <br> embarking on intensive full-stack web development bootcamp at <br> <a
             href="https://www.lewagon.com/fr/montreal"> le wagon</a> in Montreal</p>
         <br>
         <%= link_to "Download CV", download_path, target: "_blank" , class: "button-standard"%>
@@ -67,7 +67,7 @@
     <h4 class=" text-center">Stacks I use</h4>
     <br><br>
     <div class="stacks-section">
-      <div class = "d-md-flex justify-centent-md-between">
+      <div >
         <a href="https://www.ruby-lang.org/fr/" target="_blank"> <img src="<%= image_path('skills/ruby.svg') %>" class="m-4 "
             alt="ruby"></a>
         <a href="https://rubyonrails.org/" target="_blank"> <img src="<%= image_path('skills/rails.svg') %>" class="m-4 "
@@ -82,8 +82,7 @@
             alt="css"></a>
         <a href="https://sass-lang.com/" target="_blank"> <img src="<%= image_path('skills/sass.svg') %>" class="m-4 "
             alt="sass"></a>
-      </div>
-      <div class = "d-md-flex justify-centent-md-between">
+
         <img src="<%= image_path('skills/bootstrap.svg') %>" class="m-4 " alt="bootstrap">
         <img src="<%= image_path('skills/figma.svg') %>" class="m-4 " alt="figma">
         <img src="<%= image_path('skills/sql.svg') %>" class="m-4 " alt="sql">

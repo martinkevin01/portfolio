@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 :root, body{
   background-color: white !important;
-  overflow-x: hidden;
 }
 
 
@@ -86,9 +85,83 @@ p{
 @media (max-width: 960px) {
   /* Pour un écran < 960px, cette classe CSS s'applique */
 
+  .container{
+    overflow-x: hidden;
+  }
 
   .navbar-email{
    display: none;
   }
+  //about
+  .rounded-card{
+    width:100px;
+    height: 100px;
+    margin: auto;
+    padding: 17px 0;
 
+  }
+  .about-icon{
+    font-size: 20px;
+  }
+
+  .experiences{
+    display: flex;
+
+  }
+  .rounded-card h4, .rounded-card span{
+    font-size: 15px;
+  }
+
+  //skills
+  .stacks-section img{
+    height: 125px;
+    width: 125px;
+  }
+
+  .manager-section{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .management-skills{
+    height: 100px;
+    width: 100px;
+  }
+  .management-skills h5{
+    font-size: 15px;
+  }
+
+  .manager-section img{
+    height: 85px;
+    width: 85px;
+  }
+}
+
+
+@media (max-width: 720px) {
+  .navbar-email{
+    display: none;
+   }
+  .container{
+    overflow-x: hidden;
+  }
+
+  .rounded-card{
+    width:80px;
+    height: 80px;
+    margin: auto;
+    padding: 15px 0;
+
+  }
+  .about-icon{
+    font-size: 20px;
+  }
+
+  .experiences{
+    display: flex;
+
+  }
+  .rounded-card h4, .rounded-card span{
+    font-size: 12px;
+  }
 }
