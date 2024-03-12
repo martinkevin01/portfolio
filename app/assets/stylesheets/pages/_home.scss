@@ -5,8 +5,8 @@
 
 
 .home-portrait img{
-  width: 310px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
   object-fit: contain;
 }
 
@@ -29,8 +29,8 @@ p{
 // about section
 
 .about-portrait img{
-  width: 310px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   object-fit: contain;
 }
 
@@ -140,6 +140,7 @@ p{
     width: 340px;
     height: 335px;
     margin: 35px auto;
+    font-size: 17px;
 }
 
 .portfolio-card{
@@ -176,5 +177,16 @@ p{
   }
   .rounded-card h4, .rounded-card span{
     font-size: 12px;
+  }
+
+  .home-portrait img{
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+  }
+  .about-portrait img{
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
   }
 }
