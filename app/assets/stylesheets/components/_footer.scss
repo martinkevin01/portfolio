@@ -1,6 +1,6 @@
 .footer {
   background: white !important;
-  height: 220px;
+  height: 250px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -21,6 +21,15 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+.footer-email{
+  text-decoration: none;
+  opacity: 0.5;
+
+}
+
+.footer-email:hover{
+  opacity: 1;
 }
 
 .arrow-up{
@@ -52,4 +61,11 @@
   left: 7px;
 
 }
+}
+
+
+@media (max-width: 720px) {
+  .footer{
+    height: 235px;
+  }
 }
