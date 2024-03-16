@@ -6,11 +6,13 @@ class Contact < MailForm::Base
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
+
   def headers
+    mail = "postmaster@mkgapie.com"
     {
       subject: "Contact Form Portfolio",
       to: "martinkevingapie@gmail.com",
-      from: %("#{name}" <"postmaster@mkgapie.com">)
+      from: %("#{name}" <#{mail}>)
     }
   end
 end
