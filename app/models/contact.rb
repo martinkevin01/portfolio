@@ -10,7 +10,7 @@ class Contact < MailForm::Base
     {
       subject: "Contact Form Portfolio",
       to: "martinkevingapie@gmail.com",
-      from: %("#{name}" <#{email}>)
+      from: %("#{name}" <"postmaster@mkgapie.com">)
     }
   end
 end
