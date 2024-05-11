@@ -6,6 +6,13 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.request = request
+
+    #to block robot
+    if params[:contact][:nickname].present?
+      redirect_to "/#portfolio", notice: "Message not sent"
+      return
+    end
+
     if @contact.deliver
       # flash.now[:success] = 'Message sent!'
       redirect_to root_path, notice: "Message sent!"

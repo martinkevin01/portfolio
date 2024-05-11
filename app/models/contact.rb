@@ -2,7 +2,7 @@ class Contact < MailForm::Base
   attribute :name, length: { minimum: 3 }, presence: true
   attribute :email, presence: true, format: { with: /\A\S+@.+\.\S+\z/ }
   attribute :message, presence: true
-  attribute :nickname, absence: true
+  attribute :nickname, captcha: true
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
