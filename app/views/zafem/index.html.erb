@@ -1,0 +1,35 @@
+<div data-controller="zafem-verifier">
+  <%# Pour que l'image prenne toute la largeur, elle est placée hors du conteneur principal. %>
+  <%= image_tag 'Next_level.jpeg', alt: 'Next Level Event', class: 'd-block mx-auto img-fluid mb-3', style: 'max-width: 200px;' %>
+
+  <div class="container text-center my-5">
+    <h1 class="mb-4">Vérification de Billet Zafem</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form data-action="input->zafem-verifier#verify" onsubmit="return false;">
+          <div class="mb-3">
+            <label for="ticket_number" class="form-label visually-hidden">Numéro du Billet</label>
+            <input type="text"
+                   id="ticket_number"
+                   class="form-control form-control-lg text-center"
+                   data-zafem-verifier-target="input"
+                   placeholder="Scanner le billet..."
+                   autofocus
+                   autocomplete="off">
+          </div>
+        </form>
+
+        <div data-zafem-verifier-target="result" class="mt-4" style="height: 120px;">
+          <%# Le message de résultat sera affiché ici %>
+        </div>
+
+        <button class="btn btn-warning mt-3" data-action="click->zafem-verifier#resetScanned">
+          <i class="fas fa-sync-alt"></i> Réinitialiser la Mémoire
+        </button>
+      </div>
+    </div>
+
+    <h3 class="mt-5">Total Scanné: <span data-zafem-verifier-target="count">0</span></h3>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container text-center my-5" data-controller="zafem-verifier">
+  <h1 class="mb-4">Vérification de Billet Zafem</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form data-action="input->zafem-verifier#verify" onsubmit="return false;">
+        <div class="mb-3">
+          <label for="ticket_number" class="form-label visually-hidden">Numéro du Billet</label>
+          <input type="text"
+                 id="ticket_number"
+                 class="form-control form-control-lg text-center"
+                 data-zafem-verifier-target="input"
+                 placeholder="Scanner le billet..."
+                 autofocus
+                 autocomplete="off">
+        </div>
+      </form>
+
+      <div data-zafem-verifier-target="result" class="mt-4" style="height: 120px;">
+        <%# Le message de résultat sera affiché ici %>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-5">Total Scanné: <span data-zafem-verifier-target="count">0</span></h3>
+</div>
