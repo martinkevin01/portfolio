@@ -1,6 +1,8 @@
 # Utilisation d'une variable globale pour stocker les billets en mémoire.
 # Elle persiste entre les rechargements de code en environnement de développement.
 $scanned_tickets ||= Set.new
+# Un Mutex pour garantir que les accès concurrents à $scanned_tickets sont thread-safe.
+$ticket_mutex ||= Mutex.new
 
 class ZafemController < ApplicationController
 
@@ -17,24 +19,38 @@ class ZafemController < ApplicationController
 
   def verify
     ticket_number = params[:ticket_number].to_i
+    response_data = {}
+    status_code = :ok
 
-    if $scanned_tickets.include?(ticket_number)
-      render json: { status: 'error', message: 'Billet déjà scanné', ticket_type: get_ticket_type(ticket_number) }, status: :unprocessable_entity
-    elsif valid_ticket?(ticket_number)
-      $scanned_tickets.add(ticket_number)
-      render json: { status: 'success', message: 'Validé', ticket_type: get_ticket_type(ticket_number) }
-    else
-      render json: { status: 'error', message: 'Billet invalide' }, status: :not_found
+    $ticket_mutex.synchronize do
+      if $scanned_tickets.include?(ticket_number)
+        response_data = { status: 'error', message: 'Billet déjà scanné', ticket_type: get_ticket_type(ticket_number) }
+        status_code = :unprocessable_entity
+      elsif valid_ticket?(ticket_number)
+        $scanned_tickets.add(ticket_number)
+        response_data = { status: 'success', message: 'Validé', ticket_type: get_ticket_type(ticket_number) }
+      else
+        response_data = { status: 'error', message: 'Billet invalide' }
+        status_code = :not_found
+      end
     end
+
+    render json: response_data, status: status_code
   end
 
   def status
-    render json: { count: $scanned_tickets.size }
+    count = $ticket_mutex.synchronize do
+      $scanned_tickets.size
+    end
+    render json: { count: count }
   end
 
   def reset
-    $scanned_tickets.clear
-    render json: { status: 'success', message: 'Mémoire des billets réinitialisée.', count: $scanned_tickets.size }
+    count = $ticket_mutex.synchronize do
+      $scanned_tickets.clear
+      $scanned_tickets.size
+    end
+    render json: { status: 'success', message: 'Mémoire des billets réinitialisée.', count: count }
   end
 
   private
