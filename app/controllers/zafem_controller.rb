@@ -3,7 +3,7 @@ class ZafemController < ApplicationController
   # En production, assurez-vous de définir les variables d'environnement
   # ZAFEM_USER et ZAFEM_PASSWORD.
   http_basic_authenticate_with name: ENV.fetch("ZAFEM_USER", "admin"),
-                               password: ENV.fetch("ZAFEM_PASSWORD", "password")
+                               password: ENV.fetch("ZAFEM_PASSWORD", "laulita0726")
 
 
   TICKET_RANGES = {
