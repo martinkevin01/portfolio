@@ -5,6 +5,12 @@ $scanned_tickets ||= Set.new
 $ticket_mutex ||= Mutex.new
 
 class ZafemController < ApplicationController
+  # Protège toutes les actions de ce contrôleur avec une authentification HTTP Basic.
+  # En production, assurez-vous de définir les variables d'environnement
+  # ZAFEM_USER et ZAFEM_PASSWORD.
+  http_basic_authenticate_with name: ENV.fetch("ZAFEM_USER", "admin"),
+                               password: ENV.fetch("ZAFEM_PASSWORD", "laulita0726")
+
 
   TICKET_RANGES = {
     "VIP COURTOISIE" => 1001..1200,
