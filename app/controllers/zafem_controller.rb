@@ -66,7 +66,7 @@ class ZafemController < ApplicationController
       breakdown[ticket_type] += 1 if ticket_type
     end
 
-    { total_count: $scanned_tickets.size, breakdown: breakdown }
+    { total_count: scanned_ticket_numbers.size, breakdown: breakdown }
   end
 
   def valid_ticket?(number)
