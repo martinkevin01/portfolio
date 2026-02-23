@@ -1,6 +1,15 @@
+<style>
+  .zafem-alert {
+    /* Annule le positionnement global pour que l'alerte reste dans son conteneur */
+    position: static !important;
+    width: 50%;
+    margin: 0 auto; /* Centrer horizontalement */1301
+  }
+</style>
+
 <div data-controller="zafem-verifier">
   <%# Pour que l'image prenne toute la largeur, elle est placée hors du conteneur principal. %>
-  <%= image_tag 'Next_level.jpeg', alt: 'Next Level Event', class: 'd-block mx-auto img-fluid mb-3', style: 'max-width: 200px;' %>
+  <%= image_tag 'Next_level.jpeg', alt: 'Next Level Event', class: 'd-block mx-auto img-fluid mb-3', style: 'max-width: 150px;' %>
 
   <div class="container text-center my-5">
     <h1 class="mb-4">Vérification de Billet Zafem</h1>
@@ -31,5 +40,13 @@
     </div>
 
     <h3 class="mt-5">Total Scanné: <span data-zafem-verifier-target="count">0</span></h3>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8">
+        <div data-zafem-verifier-target="breakdown">
+          <!-- Le décompte par catégorie sera affiché ici -->
+        </div>
+      </div>
+    </div>
   </div>
 </div>

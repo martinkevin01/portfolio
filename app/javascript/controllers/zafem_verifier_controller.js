@@ -1,17 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
+import { createConsumer } from "@rails/actioncable"
 
 // Se connecte à data-controller="zafem-verifier"
 export default class extends Controller {
-  static targets = ["input", "result", "count"]
+  static targets = ["input", "result", "count", "breakdown"]
 
   connect() {
     console.log("Zafem Verifier Controller connected!")
     this.inputTarget.focus()
     this.loadInitialCount()
+    this.subscribeToActionCable()
   }
 
   disconnect() {
     clearTimeout(this.timeout)
+    this.unsubscribeFromActionCable()
   }
 
   // Action déclenchée à chaque saisie dans le champ
@@ -48,8 +51,8 @@ export default class extends Controller {
 
       if (response.ok) {
         this.showSuccess(data.message, data.ticket_type, ticketNumber)
-        const currentCount = parseInt(this.countTarget.textContent) || 0
-        this.countTarget.textContent = currentCount + 1
+        // Le compteur est maintenant mis à jour via Action Cable pour tous les clients,
+        // il n'est plus nécessaire de l'incrémenter localement.
       } else {
         this.showError(data.message, data.ticket_type)
       }
@@ -67,7 +70,7 @@ export default class extends Controller {
 
   showSuccess(message, ticketType, ticketNumber) {
     this.resultTarget.innerHTML = `
-      <div class="alert alert-success fs-3">
+      <div class="alert alert-success fs-3 text-center zafem-alert">
         <i class="fas fa-check-circle"></i> ${message}
         <p class="fs-5 mb-0">${ticketType} - #${ticketNumber}</p>
       </div>
@@ -76,7 +79,7 @@ export default class extends Controller {
 
   showError(message, ticketType = null) {
     this.resultTarget.innerHTML = `
-      <div class="alert alert-danger fs-3">
+      <div class="alert alert-danger fs-3 text-center zafem-alert">
         <i class="fas fa-times-circle"></i> ${message}
         ${ticketType ? `<p class="fs-5 mb-0">${ticketType}</p>` : ''}
       </div>
@@ -92,7 +95,7 @@ export default class extends Controller {
       const response = await fetch('/zafem/status');
       if (response.ok) {
         const data = await response.json();
-        this.countTarget.textContent = data.count;
+        this.updateDisplay(data);
       } else {
         console.error("Failed to load initial count.");
         this.countTarget.textContent = "0";
@@ -119,7 +122,8 @@ export default class extends Controller {
         const data = await response.json();
 
         if (response.ok) {
-          this.countTarget.textContent = data.count; // Mettre à jour le compteur à 0
+          // Le compteur et le détail sont mis à jour via Action Cable pour tous les clients.
+          // Il n'est pas nécessaire de le faire ici.
           this.clearResult();
           alert(data.message); // Afficher la confirmation
         } else {
@@ -130,5 +134,39 @@ export default class extends Controller {
         alert("Erreur de connexion lors de la réinitialisation.");
       }
     }
+  }
+
+  subscribeToActionCable() {
+    // Crée une connexion au serveur Action Cable.
+    // createConsumer() utilise l'URL fournie par la balise meta action_cable_meta_tag.
+    this.channel = createConsumer().subscriptions.create("ZafemCountChannel", {
+      connected: () => {
+        console.log("Connecté au canal ZafemCountChannel.")
+      },
+      disconnected: () => {
+        console.log("Déconnecté du canal ZafemCountChannel.")
+      },
+      // Appelé lorsque le serveur envoie des données sur ce canal.
+      received: (data) => {
+        this.updateDisplay(data);
+      }
+    })
+  }
+
+  unsubscribeFromActionCable() {
+    if (this.channel) this.channel.unsubscribe()
+  }
+
+  updateDisplay(data) {
+    // Met à jour le compteur total
+    this.countTarget.textContent = data.total_count;
+
+    // Construit et affiche le détail par catégorie sous forme de texte simple
+    let breakdownHtml = '';
+    for (const [category, count] of Object.entries(data.breakdown)) {
+      // Utilise h3 comme demandé, avec un poids de police normal pour un look plus léger.
+      breakdownHtml += `<h3 class="mt-2 fw-normal">${category}: ${count}</h3>`;
+    }
+    this.breakdownTarget.innerHTML = breakdownHtml;
   }
 }

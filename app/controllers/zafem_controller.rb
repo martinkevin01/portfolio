@@ -29,6 +29,8 @@ class ZafemController < ApplicationController
       elsif valid_ticket?(ticket_number)
         $scanned_tickets.add(ticket_number)
         response_data = { status: 'success', message: 'Validé', ticket_type: get_ticket_type(ticket_number) }
+        # Diffuse le nouveau statut complet à tous les clients connectés
+        ActionCable.server.broadcast "zafem_count_channel", get_current_status
       else
         response_data = { status: 'error', message: 'Billet invalide' }
         status_code = :not_found
@@ -39,21 +41,39 @@ class ZafemController < ApplicationController
   end
 
   def status
-    count = $ticket_mutex.synchronize do
-      $scanned_tickets.size
+    current_status = $ticket_mutex.synchronize do
+      get_current_status
     end
-    render json: { count: count }
+    render json: current_status
   end
 
   def reset
-    count = $ticket_mutex.synchronize do
+    status_after_reset = {}
+    $ticket_mutex.synchronize do
       $scanned_tickets.clear
-      $scanned_tickets.size
+      status_after_reset = get_current_status
     end
-    render json: { status: 'success', message: 'Mémoire des billets réinitialisée.', count: count }
+    # Diffuse le nouveau statut (vide) à tous les clients connectés
+    ActionCable.server.broadcast "zafem_count_channel", status_after_reset
+
+    render json: { status: 'success', message: 'Mémoire des billets réinitialisée.', count: status_after_reset[:total_count] }
   end
 
   private
+
+  def get_current_status
+    # NOTE: Cette méthode doit être appelée à l'intérieur d'un bloc $ticket_mutex.synchronize
+    # Initialise le décompte avec toutes les catégories à 0
+    breakdown = TICKET_RANGES.keys.to_h { |key| [key, 0] }
+
+    # Itère sur les billets scannés pour les compter par catégorie
+    $scanned_tickets.each do |ticket_number|
+      ticket_type = get_ticket_type(ticket_number)
+      breakdown[ticket_type] += 1 if ticket_type
+    end
+
+    { total_count: $scanned_tickets.size, breakdown: breakdown }
+  end
 
   def valid_ticket?(number)
     TICKET_RANGES.values.any? { |range| range.cover?(number) }
