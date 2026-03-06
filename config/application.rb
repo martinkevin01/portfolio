@@ -17,6 +17,12 @@ module Portfolio
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # The Zafem feature and its tests use Redis, not the database.
+    # When running tests on a Heroku one-off dyno, there is no test database available,
+    # causing `maintain_test_schema!` to fail.
+    # This line disables the database schema check for the test environment.
+    config.active_record.maintain_test_schema = false if Rails.env.test?
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
