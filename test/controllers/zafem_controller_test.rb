@@ -2,6 +2,12 @@ require "test_helper"
 require "concurrent-ruby"
 
 class ZafemControllerTest < ActionDispatch::IntegrationTest
+  # This test class interacts with Redis, not the database.
+  # By calling `fixtures` with no arguments, we tell Rails not to load any fixtures for these tests.
+  # This prevents the test runner from trying to connect to the test database, which is useful
+  # when running tests without a database server (e.g., locally if postgres isn't running).
+  fixtures
+
   def setup
     # Vider Redis et configurer l'authentification avant chaque test
     $redis.del("scanned_tickets")
@@ -63,35 +69,28 @@ class ZafemControllerTest < ActionDispatch::IntegrationTest
   test "stress test simulating two concurrent scanners" do
     # Nous allons scanner 100 billets, avec deux scanners qui essaient de tous les scanner en même temps.
     # Cela testera la gestion des race conditions grâce à l'atomicité de Redis.
+    num_scanners = 2
     tickets_to_scan = (1301..1400).to_a # 100 billets "Billet 80$"
 
     # Une barrière pour synchroniser le démarrage des threads pour une meilleure simulation de concurrence.
-    barrier = Concurrent::CyclicBarrier.new(2)
+    barrier = Concurrent::CyclicBarrier.new(num_scanners)
 
     # Un tableau thread-safe pour stocker les résultats des deux threads.
     results = Concurrent::Array.new
 
-    # Simulation du Scanner 1
-    thread1 = Thread.new do
-      s = open_session
-      barrier.wait # Attend les autres threads
-      tickets_to_scan.each do |ticket|
-        s.post zafem_verify_url, params: { ticket_number: ticket }, headers: @auth_headers
-        results << { status: s.response.status, body: JSON.parse(s.response.body) }
+    # Simule N scanners en parallèle
+    threads = Array.new(num_scanners) do
+      Thread.new do
+        s = open_session # Chaque thread a sa propre session de test
+        barrier.wait # Attend que tous les threads soient prêts
+        tickets_to_scan.each do |ticket|
+          s.post zafem_verify_url, params: { ticket_number: ticket }, headers: @auth_headers
+          results << { status: s.response.status, body: JSON.parse(s.response.body) }
+        end
       end
     end
 
-    # Simulation du Scanner 2
-    thread2 = Thread.new do
-      s = open_session
-      barrier.wait # Attend les autres threads
-      tickets_to_scan.each do |ticket|
-        s.post zafem_verify_url, params: { ticket_number: ticket }, headers: @auth_headers
-        results << { status: s.response.status, body: JSON.parse(s.response.body) }
-      end
-    end
-
-    [thread1, thread2].each(&:join)
+    threads.each(&:join)
 
     # --- Vérifications ---
     assert_equal 100, $redis.scard("scanned_tickets"), "Redis doit contenir exactement 100 billets uniques."
