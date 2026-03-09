@@ -26,7 +26,7 @@ class ZafemController < ApplicationController
 
     # $redis.sadd est atomique. Il retourne true si le billet a été ajouté, false s'il existait déjà.
     # Cela remplace le besoin d'un Mutex.
-    is_new_scan = $redis.sadd("scanned_tickets", ticket_number)
+    is_new_scan = $redis.sadd?("scanned_tickets", ticket_number)
 
     if is_new_scan
       response_data = { status: 'success', message: 'Validé', ticket_type: get_ticket_type(ticket_number) }
